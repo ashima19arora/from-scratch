@@ -67,3 +67,32 @@ void insertAtTail(ListNode<T>*& head, T data) {
   temp->next = newNode;
   return;
 }
+
+template <typename T>
+void insertAtAnyPos(ListNode<T>*& head, T data, int pos) {
+  ListNode<T>* newNode = new ListNode<T>(data);
+  // check if pos<=1=insert at head ka case
+  if (pos <= 1) {
+    newNode->next = head;
+    head = newNode;
+    return;
+  }
+  // else traverse till POS
+  ListNode<T>* temp = head;
+  for (int i = 1; i < pos - 1 and temp->next != nullptr; i++) {
+    temp = temp->next;
+  }
+  newNode->next = temp->next;
+  temp->next = newNode;
+}
+
+template <typename T>
+void deleteAtHead(ListNode<T>*& head) {  // pass by reference-here u want to
+                                         // reflect the changes
+  if (head == nullptr) {
+    return;
+  }
+  ListNode<T>* temp = head;
+  head = head->next;
+  delete temp;  // deallocate the memory temp is pointing towards
+}
