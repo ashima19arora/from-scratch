@@ -1,2 +1,6 @@
 # from-scratch
-classic data structures and algorithms
+
+A collection/log of data structure and algorithm implementations, along with problem-solving approaches across various topics.
+
+## Contents
+- Linked List
