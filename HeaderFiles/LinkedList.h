@@ -75,7 +75,7 @@ void deleteAtTail(ListNode<T>*& head) {  // pass by reference-here u want to
     return;
   }
 
-  while (temp->next->next != null) {  // temp->next is a pointer
+  while (temp->next->next != nullptr) {  // temp->next is a pointer
     temp = temp->next;
   }
   // we are at the second last node;
@@ -105,7 +105,7 @@ void deleteAtanyPos(ListNode<T>*& head,
   // if you are here, we are either at pos-1 or the pos doesnt exist(you are
   // last node)
   // check is it is scenario 2
-  if (temp->next = nullptr) {
+  if (temp->next == nullptr) {
     // you are at the last node , the given pos doesn't exist
     return;
   }
@@ -124,7 +124,7 @@ void deleteAtByVal(ListNode<T>*& head,
 
   ListNode<T>* temp = head;
   // the value is present at the head
-  if (head->val = data) {
+  if (head->val == data) {
     // you are deleting the first node
     head = temp->next;
     delete temp;
@@ -135,7 +135,7 @@ void deleteAtByVal(ListNode<T>*& head,
   while (temp->next != nullptr) {
     if (temp->next->val == data) {
       // you are the node whose next node's val matched with data
-      ListNode<T>* toDelete = temp;
+      ListNode<T>* toDelete = temp->next;
       temp->next = toDelete->next;
       delete toDelete;
       return;
@@ -177,11 +177,10 @@ bool searchInLLRecursively(ListNode<T>* start, T key) {
     return false;
   }
   // current state f(i,key)
-  if (start == nullptr) {
+  if (start->val == key) {
     return true;
   }
-  start = start->next;
-  return searchInLLRecursively(start, key);
+  return searchInLLRecursively(start->next, key);
 }
 
 // length
