@@ -1,3 +1,17 @@
+#include <iostream>
+using namespace std;
+class ListNode {
+ public:
+  T val;
+  ListNode* next;  // self referential pointer
+
+  // default constructor
+  ListNode() { next = nullptr; }
+  ListNode(T x) {
+    val = x;
+    next = nullptr;
+  }
+};
 class MyLinkedList {
  public:
   ListNode* head;
